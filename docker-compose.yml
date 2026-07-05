@@ -1,0 +1,25 @@
+services:
+  vscode:
+    build:
+      context: .
+      dockerfile: docker/vscode/Dockerfile
+
+    container_name: orbit-vscode
+
+    ports:
+      - "8080:8443"
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Kolkata
+      - PASSWORD=orbit
+
+    volumes:
+      - ./workspace:/config/workspace
+      - vscode-data:/config
+
+    restart: unless-stopped
+
+volumes:
+  vscode-data:
