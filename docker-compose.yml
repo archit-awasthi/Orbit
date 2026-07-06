@@ -4,14 +4,14 @@ services:
       context: .
       dockerfile: docker/vscode/Dockerfile
 
+    image: orbit-vscode:latest
+
     container_name: orbit-vscode
 
     ports:
       - "8080:8443"
 
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=Asia/Kolkata
       - PASSWORD=orbit
 
